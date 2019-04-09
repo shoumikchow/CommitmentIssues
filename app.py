@@ -1,10 +1,11 @@
 import json
+from secrets import github_token, twitter_keys
 import requests
 import re
 import threading
 import tweepy as tweepy
 from time import sleep
-from secrets import github_token, twitter_keys
+
 
 
 profanity = ['\barse\b', 'bastard', 'bitch', 'bloody', 
