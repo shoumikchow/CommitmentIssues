@@ -1,11 +1,17 @@
 import json
-from secrets import github_token, twitter_keys
-import requests
 import re
 import threading
-import tweepy as tweepy
+from os import environ
 from time import sleep
 
+import requests
+import tweepy as tweepy
+
+CONSUMER_KEY = environ['consumer_key']
+CONSUMER_SECRET = environ['consumer_secret']
+ACCESS_TOKEN = environ['access_token']
+ACCESS_TOKEN_SECRET = environ['access_token_secret']
+github_token = environ['github_token']
 
 
 profanity = ['\barse\b', 'bastard', 'bitch', 'bloody', 
@@ -77,10 +83,6 @@ def tweet_new_messages():
 
 
 def tweet(message):
-    CONSUMER_KEY = twitter_keys['consumer_key']
-    CONSUMER_SECRET = twitter_keys['consumer_secret']
-    ACCESS_TOKEN = twitter_keys['access_token']
-    ACCESS_TOKEN_SECRET = twitter_keys['access_token_secret']
 
     auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
     try:
